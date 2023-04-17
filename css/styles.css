@@ -1,17 +1,21 @@
-/* Style for each box */
-.cat {
-  width: calc(
-    25% - 20px
-  ); /* Set the width of each box and subtract the margin */
-  margin-bottom: 2rem; /* Add some space between the boxes */
-  text-align: center; /* Center the content inside the box */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow effect */
-  transition: 0.3s; /* Add a transition effect on hover */
+.amazon-banner {
+  width: 100%;
+  height: auto;
+  max-height: 125px;
 }
 
-.cat iframe {
-  max-width: 100%;
-  height: auto;
+.cat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 20px;
+}
+
+.cat-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* Media queries for responsiveness */

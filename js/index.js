@@ -87,3 +87,22 @@ fetch(`${PRODUCT_ENDPOINT}?${new URLSearchParams(PRODUCT_PARAMS)}`, {
 .catch(error => {
 	console.error(error);
 });
+
+function resizeAmazonBanners() {
+	const banners = document.querySelectorAll('.amazon-banner');
+  
+	banners.forEach((banner) => {
+	  const width = banner.getAttribute('width');
+	  const height = banner.getAttribute('height');
+	  const aspectRatio = height / width;
+  
+	  const containerWidth = banner.parentElement.clientWidth;
+	  banner.style.width = containerWidth + 'px';
+	  banner.style.height = containerWidth * aspectRatio + 'px';
+	});
+  }
+  
+  // Call the resizeAmazonBanners function on window load and resize events
+  window.addEventListener('load', resizeAmazonBanners);
+  window.addEventListener('resize', resizeAmazonBanners);
+  
