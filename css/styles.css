@@ -87,6 +87,12 @@ h1 {
   .main-content p {
     font-size: 1.2rem;
   }
+
+  .main-content .btn,
+  .main-content .hero-btn {
+    padding: 15px 15px;
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -97,6 +103,12 @@ h1 {
   .main-content p {
     font-size: 1rem;
   }
+
+  .main-content .btn,
+  .main-content .hero-btn {
+    padding: 10px 10px;
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -106,6 +118,12 @@ h1 {
 
   .main-content p {
     font-size: 0.9rem;
+  }
+
+  .main-content .btn,
+  .main-content .hero-btn {
+    padding: 5px 5px;
+    font-size: 0.8rem;
   }
 }
 
