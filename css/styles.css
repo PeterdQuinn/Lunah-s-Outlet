@@ -12,7 +12,9 @@ h1 {
 
 /* Style for each box */
 .cat {
-  width: calc(25% - 20px); /* Set the width of each box and subtract the margin */
+  width: calc(
+    25% - 20px
+  ); /* Set the width of each box and subtract the margin */
   margin-bottom: 2rem; /* Add some space between the boxes */
   text-align: center; /* Center the content inside the box */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow effect */
@@ -39,9 +41,7 @@ h1 {
   object-fit: cover;
   vertical-align: middle;
 }
-
-/* Main content */
-.main-content {
+<!-- Main conent-- > .main-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,8 +78,7 @@ h1 {
   text-decoration: none;
 }
 
-/* promos */
-.new-arrival {
+<!-- promos ----------------- > .new-arrival {
   background-color: #f2f2f2;
   padding: 50px 0;
   text-align: center;
@@ -128,4 +127,46 @@ h1 {
 .product-item .overlay .discount:after {
   content: "";
   position: absolute;
- 
+  border-style: solid;
+  border-width: 0 25px 25px 0;
+  border-color: transparent #ff9900 transparent transparent;
+  top: 0;
+  right: 0;
+}
+
+.product-item .overlay .product-thumb img {
+  width: 100%;
+}
+
+.product-info {
+  padding: 20px;
+  text-align: left;
+}
+
+.product-info span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-info a {
+  background-color: #333;
+  color: #fff;
+  display: block;
+  font-size: 1.2rem;
+  margin: 20px 0;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.product-info a:hover {
+  background-color: #ff9900;
+  color: #fff;
+}
+
+.product-info h4 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
