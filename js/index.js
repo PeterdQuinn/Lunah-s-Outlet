@@ -13,27 +13,15 @@ mexicoBtn.addEventListener('click', () => {
   window.location.href = 'https://amzn.to/3yu54mY';
 });
 
-const ACCESS_KEY_ID = 'YOUR_ACCESS_KEY_ID';
-const SECRET_ACCESS_KEY = 'YOUR_SECRET_ACCESS_KEY';
-
-const PRODUCT_ENDPOINT = 'https://webservices.amazon.com/paapi5/searchitems';
-const PRODUCT_PARAMS = {
-	Keywords: 'electronics',
-	PartnerTag: 'YOUR_TAG',
-	PartnerType: 'Associates',
-	Resources: [
-		'Images.Primary.Small',
-		'ItemInfo.Title',
-		'Offers.Listings.Price',
-		'CustomerReviews.Count',
-		'CustomerReviews.AverageRating'
-	],
-	ItemCount: 4
-};
-
 const productContainer = document.getElementById('products');
 
 const timestamp = new Date().toISOString();
+
+const PRODUCT_ENDPOINT = "your_product_endpoint";
+const PRODUCT_PARAMS = {}; // Add your product parameters
+
+const SECRET_ACCESS_KEY = process.env.SECRET_ACCESS_KEY;
+const ACCESS_KEY_ID = process.env.ACCESS_KEY_ID;
 
 const hash = CryptoJS.HmacSHA256(`${timestamp}\n${PRODUCT_ENDPOINT}\n${JSON.stringify(PRODUCT_PARAMS)}`, SECRET_ACCESS_KEY);
 const hashHex = hash.toString(CryptoJS.enc.Hex);
@@ -43,8 +31,7 @@ fetch(`${PRODUCT_ENDPOINT}?${new URLSearchParams(PRODUCT_PARAMS)}`, {
 		'Content-Type': 'application/json',
 		'X-Amz-Target': 'com.amazon.paapi5.v1.ProductAdvertisingAPIv1.SearchItems',
 		'X-Amz-Date': timestamp,
-		'X-Amz-Security-Token': 'YOUR_SESSION_TOKEN',
-		'Authorization': `AWS4-HMAC-SHA256 Credential=${ACCESS_KEY_ID}/${timestamp.substring(0, 8)}/us-east-1/ProductAdvertisingAPI/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target;x-amz-security-token, Signature=${hashHex}`
+		'Authorization': `AWS4-HMAC-SHA256 Credential=${ACCESS_KEY_ID}/${timestamp.substring(0, 8)}/us-east-1/ProductAdvertisingAPI/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=${hashHex}`
 	}
 })
 .then(response => response.json())
@@ -88,6 +75,7 @@ fetch(`${PRODUCT_ENDPOINT}?${new URLSearchParams(PRODUCT_PARAMS)}`, {
 	console.error(error);
 });
 
+
 function resizeAmazonBanners() {
 	const banners = document.querySelectorAll('.amazon-banner');
   
@@ -106,3 +94,19 @@ function resizeAmazonBanners() {
   window.addEventListener('load', resizeAmazonBanners);
   window.addEventListener('resize', resizeAmazonBanners);
   
+
+  // console log the data //
+  fetch(`${PRODUCT_ENDPOINT}?${new URLSearchParams(PRODUCT_PARAMS)}`, {
+    // ...
+})
+.then(response => {
+    console.log('API response:', response); // Log the raw response
+    return response.json();
+})
+.then(data => {
+    console.log('Parsed JSON data:', data); // Log the parsed JSON data
+    // ...
+})
+.catch(error => {
+    console.error(error);
+});
