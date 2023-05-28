@@ -13,6 +13,15 @@ mexicoBtn.addEventListener('click', () => {
   window.location.href = 'https://amzn.to/3yu54mY';
 });
 
+const couponsBtn = document.querySelector('#coupons-btn');
+
+couponsBtn.addEventListener('click', function(e) {
+	// Redirect the user to the linked website when the button is clicked
+	window.location.href = 'https://amzn.to/45xREWn';
+});	
+
+
+
 const productContainer = document.getElementById('products');
 
 const timestamp = new Date().toISOString();
