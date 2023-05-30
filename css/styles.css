@@ -46,9 +46,20 @@
 }
 
 .navbar-links a {
-  color: #C4C4C4;
+  color: #C4C4C4;  
   text-decoration: none;
+  display: inline-block; /* Required to apply padding and border */
+  padding: 10px;
+  border: 2px solid #C4C4C4; /* Outline */
+  border-radius: 5px;  /* Rounded corners */
+  transition: all 0.3s ease;  /* Smooth transition */
 }
+
+.navbar-links a:hover {
+  background-color: #C4C4C4; /* On hover, background becomes the theme text color */
+  color: #162041;  /* Text color becomes the theme background color */
+}
+
 
 .toggle-button {
   position: absolute;
@@ -311,26 +322,28 @@
     font-weight: bold;
   }
   
-  /* Media query for mobile devices */
-  @media (max-width: 768px) {
-    .services {
-      margin-top: 30px;
-      margin-bottom: 30px;
-    }
-  
-    .box {
-      width: 150px;
-      height: 150px;
-      margin: 0 10px;
-      font-size: 14px;
-    }
-    
-    .box-container {
-      justify-content: flex-start;
-      margin-top: 15px;
-      margin-bottom: 15px;
-    }
+ /* Media query for mobile devices */
+@media (max-width: 768px) {
+  .services {
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
+
+  .box {
+    width: 150px;
+    height: 150px;
+    margin: 0 10px;
+    font-size: 14px;
+  }
+  
+  .box-container {
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    gap: 20px; /* add gap */
+  }
+}
+
   
 
 <!--footer----------------------------- > 
